@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalBook — Perpustakaan E-Book Digital</title>
+  <meta name="description" content="Baca e-book Indonesia kapan saja: telusuri katalog, simpan favorit, dan lanjutkan membaca.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,400;7..72,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-halaman="katalog">
+  <div id="nav"></div>
+
+  <main>
+    <!-- HERO: pencarian + lanjutkan membaca -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-teks">
+          <p class="eyebrow">Perpustakaan digital</p>
+          <h1>Baca apa hari ini?</h1>
+          <p>Telusuri katalog, simpan buku favorit, dan lanjutkan membaca tepat di bab terakhirmu.</p>
+          <form class="cari" id="formCari" role="search">
+            <input id="q" type="search" placeholder="Cari judul, penulis, atau kategori…" aria-label="Cari buku" autocomplete="off">
+            <button type="submit">Cari</button>
+          </form>
+        </div>
+        <div class="hero-kartu" id="heroKartu"></div>
+      </div>
+    </section>
+
+    <!-- PILIHAN EDITOR -->
+    <section class="wrap blok" aria-labelledby="h-pilihan">
+      <div class="blok-kepala"><h2 id="h-pilihan">Pilihan editor</h2><span>Rating tertinggi</span></div>
+      <div class="baris" id="baris"></div>
+    </section>
+
+    <!-- KATALOG -->
+    <section class="wrap blok" id="katalog" aria-labelledby="h-katalog">
+      <div class="blok-kepala"><h2 id="h-katalog">Katalog</h2><span id="hitung" aria-live="polite"></span></div>
+
+      <div class="chips" id="chips" aria-label="Filter kategori"></div>
+
+      <div class="toolbar">
+        <div class="tab" role="tablist" aria-label="Tampilan rak">
+          <button role="tab" data-tab="semua" aria-selected="true">Semua</button>
+          <button role="tab" data-tab="favorit" aria-selected="false">Favorit</button>
+          <button role="tab" data-tab="dibaca" aria-selected="false">Sedang dibaca</button>
+        </div>
+        <label class="urut">Urutkan
+          <select id="urut">
+            <option value="rating">Rating tertinggi</option>
+            <option value="baru">Terbaru</option>
+            <option value="judul">Judul A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid" id="grid"></div>
+      <div class="kosong" id="kosong" hidden></div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

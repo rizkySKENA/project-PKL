@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id" data-tema="terang" data-huruf="serif">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baca — DigitalBook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,400;7..72,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="baca" data-halaman="baca">
+
+  <header class="r-bar">
+    <div class="r-isi">
+      <a class="r-tombol" id="rKembali" href="index.html" aria-label="Kembali ke detail buku">← <span class="teks">Kembali</span></a>
+      <button class="r-tombol" id="btnToc" aria-expanded="false" aria-controls="pToc">☰ <span class="teks">Daftar isi</span></button>
+      <p class="r-judul" id="rJudul"></p>
+      <button class="r-tombol" id="btnSet" aria-expanded="false" aria-controls="pSet" aria-label="Pengaturan tampilan">Aa <span class="teks">Tampilan</span></button>
+    </div>
+    <div class="r-garis" role="progressbar" aria-label="Progres membaca buku"><i id="rGaris"></i></div>
+  </header>
+
+  <!-- daftar isi -->
+  <aside class="panel p-toc" id="pToc" hidden aria-label="Daftar isi">
+    <p class="p-judul" id="tocJudul"></p>
+    <nav id="tocList"></nav>
+  </aside>
+
+  <!-- pengaturan tampilan -->
+  <section class="panel p-set" id="pSet" hidden aria-label="Pengaturan tampilan">
+    <div class="p-baris">
+      <b>Tema</b>
+      <div class="pilih">
+        <button class="t-terang" data-tema-pilih="terang" aria-pressed="true">Terang</button>
+        <button class="t-sepia" data-tema-pilih="sepia" aria-pressed="false">Sepia</button>
+        <button class="t-gelap" data-tema-pilih="gelap" aria-pressed="false">Gelap</button>
+      </div>
+    </div>
+    <div class="p-baris">
+      <b>Ukuran huruf</b>
+      <div class="pilih">
+        <button id="kecil" aria-label="Perkecil huruf">A−</button>
+        <button id="ukuranTeks" disabled style="border-style:dashed">19 px</button>
+        <button id="besar" aria-label="Perbesar huruf">A+</button>
+      </div>
+    </div>
+    <div class="p-baris">
+      <b>Jenis huruf</b>
+      <div class="pilih">
+        <button data-huruf-pilih="serif" aria-pressed="true" style="font-family:var(--serif)">Serif</button>
+        <button data-huruf-pilih="sans" aria-pressed="false">Sans</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <article class="r-artikel" id="artikel" aria-live="polite"></article>
+    <div class="r-nav">
+      <a class="tombol" id="prev" href="#">← Bab sebelumnya</a>
+      <a class="tombol tombol-hijau" id="next" href="#">Bab berikutnya →</a>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
